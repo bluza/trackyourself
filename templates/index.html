@@ -3,15 +3,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <title>this is sparta</title>
     <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mx-auto h-screen w-screen divide-y-2">
-        <div class="h-40 bg-green-100"></div>
-        <div class="h-40 bg-green-100"></div>
+        <header class="bg-slate-400 my-1 rounded-sm">
+            <h1 class="h-32 p-4 capitalize">track your progress and stuff</h1>
+        </header>
+
+        <div id="tracking-entries">
+
+        </div>
+        <div class="h-40 bg-green-100">
+            <h2>Date: current Date</h2>
+            <div class="flex flex-row gap-10">
+            {{template "pictureContainer"}}
+            {{template "stats"}}
+            </div>
+        </div>
     </div>
+
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
 </body>
 {{end}}
