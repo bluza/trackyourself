@@ -30,5 +30,8 @@ func main() {
 	e.GET("/", func(e echo.Context) error {
 		return e.Render(http.StatusOK, "index", nil)
 	})
+	e.GET("/modal", func(e echo.Context) error {
+		return e.Render(http.StatusOK, "imageModal", nil)
+	})
 	e.Logger.Fatal(e.Start(":8080"))
 }

@@ -588,21 +588,87 @@ video {
   }
 }
 
+.static {
+  position: static;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.h-32 {
+  height: 8rem;
 }
 
 .h-40 {
   height: 10rem;
 }
 
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
 .h-screen {
   height: 100vh;
 }
 
+.w-2\/6 {
+  width: 33.333333%;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.w-3\/6 {
+  width: 50%;
+}
+
 .w-screen {
   width: 100vw;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .divide-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -611,7 +677,247 @@ video {
   border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
 }
 
+.rounded-sm {
+  border-radius: 0.125rem;
+}
+
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity));
 }
+
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+/***** MODAL DIALOG ****/
+
+#modal {
+  /* Underlay covers entire screen. */
+  position: fixed;
+  top:0px;
+  bottom: 0px;
+  left:0px;
+  right:0px;
+  background-color:rgba(0,0,0,0.5);
+  z-index:1000;
+  /* Flexbox centers the .modal-content vertically and horizontally */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  /* Animate when opening */
+  animation-name: fadeIn;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+#modal > .modal-underlay {
+  /* underlay takes up the entire viewport. This is only
+	required if you want to click to dismiss the popup */
+  position: absolute;
+  z-index: -1;
+  top:0px;
+  bottom:0px;
+  left: 0px;
+  right: 0px;
+}
+
+#modal > .modal-content {
+  /* Position visible dialog near the top of the window */
+  margin-top:10vh;
+  /* Sizing for visible dialog */
+  width:80%;
+  max-width:600px;
+  /* Display properties for visible dialog*/
+  border:solid 1px #999;
+  border-radius:8px;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+  background-color:white;
+  padding:20px;
+  /* Animate when opening */
+  animation-name:zoomIn;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+#modal.closing {
+  /* Animate when closing */
+  animation-name: fadeOut;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+#modal.closing > .modal-content {
+  /* Animate when closing */
+  animation-name: zoomOut;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+/***** MODAL DIALOG ****/
+
+#modal {
+  /* Underlay covers entire screen. */
+  position: fixed;
+  top:0px;
+  bottom: 0px;
+  left:0px;
+  right:0px;
+  background-color:rgba(0,0,0,0.5);
+  z-index:1000;
+  /* Flexbox centers the .modal-content vertically and horizontally */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  /* Animate when opening */
+  animation-name: fadeIn;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+#modal > .modal-underlay {
+  /* underlay takes up the entire viewport. This is only
+	required if you want to click to dismiss the popup */
+  position: absolute;
+  z-index: -1;
+  top:0px;
+  bottom:0px;
+  left: 0px;
+  right: 0px;
+}
+
+#modal > .modal-content {
+  /* Position visible dialog near the top of the window */
+  margin-top:10vh;
+  /* Sizing for visible dialog */
+  width:80%;
+  max-width:600px;
+  /* Display properties for visible dialog*/
+  border:solid 1px #999;
+  border-radius:8px;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+  background-color:white;
+  padding:20px;
+  /* Animate when opening */
+  animation-name:zoomIn;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+#modal.closing {
+  /* Animate when closing */
+  animation-name: fadeOut;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+#modal.closing > .modal-content {
+  /* Animate when closing */
+  animation-name: zoomOut;
+  animation-duration:150ms;
+  animation-timing-function: ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+} 
