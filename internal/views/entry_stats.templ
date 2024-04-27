@@ -1,10 +1,14 @@
-{{define "stats"}}
+package views
+
+
+templ Stats(col1, col2 string) {
+
     <div class="border-1 h-32 w-2/6 bg-red-200">
         <tabel>
             <tr>
-                <th>Gewicht:</th>
-                <th>100KG</th>
+                <th>{col1}: </th>
+                <th>{col2}</th>
             </tr>
         </tabel>
     </div>
-{{end}}
+}

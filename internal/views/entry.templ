@@ -1,0 +1,28 @@
+package views
+
+import (
+    "time"
+)
+
+
+templ pictureContainer() {
+    <div class="grid grid-rows-1 grid-cols-4 border-1 h-32 w-3/6 bg-red-200 p-2 shadow-md" >
+        <a hx-get="/modal" hx-target="body" hx-swap="beforeend" class="cursor-pointer">
+            <img class="w-20 h-max shadow-md" src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"/>
+        </a>
+        <img class="w-20 h-max" src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"/>
+        <img class="w-20 h-max" src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"/>
+        <img class="w-20 h-max" src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"/>
+    </div>
+}
+
+templ Entry(date time.Time) {
+    <div class="h-40 bg-green-100">
+        <h2>Date: { date.Format("2006-01-02") } </h2>
+        <div class="flex flex-row gap-10">
+            @pictureContainer()
+            @Stats("Gewicht", "100KG")
+            // @Stats("Einheit", "LEGS")
+        </div>
+    </div>
+}
